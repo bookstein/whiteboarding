@@ -34,7 +34,7 @@ def r_find_next_biggest(node):
 
     # base case: if current node is only node (node.next --> None)
     if not node.next:
-        return biggest_num
+        return biggest_num # node.data
 
     print "before recursion"
 
@@ -42,10 +42,39 @@ def r_find_next_biggest(node):
 
     print "past recursion"
 
-    if next_biggest > biggest_num:
+    if next_biggest > biggest_num: # greater than node.data
         biggest_num = next_biggest
 
     return biggest_num
+
+# OLD VERSION
+# def r_find_next_biggest(node, biggest_num=None):
+#     """
+#     Find the next biggest number in a linked list from any given node,
+#     recursively.
+#     """
+#     if not biggest_num:
+#         biggest_num = node.data
+
+#     # base case: if current node is None (node.next --> None)
+#     if not node:
+#         # this only runs once
+#         return biggest_num
+
+#     else:
+#         # change value of biggest num
+#         if node.data >= biggest_num:
+#             biggest_num = node.data
+
+#         # why does this need to return? --> REMEMBER!
+#           # BECAUSE otherwise, coming back up, each function returns None
+#         return r_find_next_biggest(node.next, biggest_num)
+
+
+#         # # work on this! START HERE TOMORROW (this invalidates other stuff!)
+#         # next_biggest = r_find_next_biggest(node.next)
+#         # if next_biggest > node.data:
+#         #     return next_biggest
 
 
 a = Node(2)
