@@ -25,11 +25,14 @@ def find_next_biggest(node):
     return biggest_num
 
 
-def r_find_next_biggest(node, biggest_num):
+def r_find_next_biggest(node, biggest_num=None):
     """
     Find the next biggest number in a linked list from any given node,
     recursively.
     """
+    if not biggest_num:
+        biggest_num = node.data
+
     # base case: if current node is None (node.next --> None)
     if not node:
         return biggest_num
@@ -39,8 +42,14 @@ def r_find_next_biggest(node, biggest_num):
         if node.data >= biggest_num:
             biggest_num = node.data
 
+        # why does this need to return? --> REMEMBER!
         return r_find_next_biggest(node.next, biggest_num)
 
+
+        # # work on this! START HERE TOMORROW (this invalidates other stuff!)
+        # next_biggest = r_find_next_biggest(node.next)
+        # if next_biggest > node.data:
+        #     return next_biggest
 
 
 a = Node(2)
