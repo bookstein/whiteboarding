@@ -43,8 +43,13 @@ def multiply_list(lst):
     0
     """
     # base case: list has length 1, returns value
-    if len(lst) == 1:
-        return lst[0]
+    # if len(lst) == 1:
+    #     return lst[0]
+
+    # base case: empty list -- returns 1 (not 0, because anything * 0 = 0)
+    if not lst:
+        return 1
+
     # normal case: list not empty
     else:
         return lst[0] * multiply_list(lst[1:])
@@ -87,7 +92,7 @@ def count_list(lst):
     4
     """
     # base case: list is empty
-    if lst == []:
+    if not lst:   # empty list
         return 0
 
     else:
@@ -104,7 +109,7 @@ def sum_list(lst):
     165
     """
     # base case: list is empty
-    if lst == []:
+    if not lst:
         return 0
 
     else:
@@ -226,8 +231,11 @@ def is_palindrome(some_string):
     """
 
     # base case(s): 1 letter matches 1 letter, or empty list
-    if len(some_string) <= 1:
-        # print "if ", some_string
+    # if len(some_string) <= 1:
+    #     return True
+
+    # base case: empty string (more degenerate)
+    if not some_string:
         return True
 
     else:
@@ -279,11 +287,15 @@ def fold_paper(width, height, folds):
     height = float(height)
 
     # base case is # of folds == 1:
-    if folds == 1:
-        if width >= height:
-            return (width / 2, height)
-        else:
-            return (width, height / 2)
+    # if folds == 1:
+    #     if width >= height:
+    #         return (width / 2, height)
+    #     else:
+    #         return (width, height / 2)
+
+    # more degenerate case: # folds is 0
+    if folds == 0:
+        return (width, height)
 
     else:
         if width >= height:
@@ -319,19 +331,22 @@ def count_up(n, target):
     >>> count_up(1, 0)
     """
 
-    # base case(s): n is the same as the target, OR, n is greater than target
+    # base case: n is greater than target
 
     if n > target:
-        return None
+        return
 
-    if n == target:
-        print n
+    print n
+    count_up(n + 1, target)
 
-    else:
-        print n
-        count_up(n + 1, target)
+    # if n >= target:
+    #     print n
 
-    return
+    # else:
+    #     print n
+    #     count_up(n + 1, target)
+
+    # return
 
 
 ###########################################################################################
