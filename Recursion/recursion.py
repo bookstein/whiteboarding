@@ -31,8 +31,8 @@ When all tests pass, this program will output:
 
 def multiply_list(lst):
     """Multiply all the elements in a list using recursion.
-    
-    
+
+
     >>> multiply_list([5, 2, 1, 4, 3, 6])
     720
 
@@ -42,8 +42,13 @@ def multiply_list(lst):
     >>> multiply_list([5, 24, 48, 88, 0])
     0
     """
+    # base case: list has length 1, returns value
+    if len(lst) == 1:
+        return lst[0]
+    # normal case: list not empty
+    else:
+        return lst[0] * multiply_list(lst[1:])
 
-    pass
 
 
 def factorial(n):
@@ -63,8 +68,13 @@ def factorial(n):
     >>> factorial(4)
     24
     """
+    #base case: n is 1, therefore multiply by 1
+    if n == 1:
+        return 1
 
-    pass
+    else:
+        return n * factorial(n-1)
+
 
 
 def count_list(lst):
@@ -76,8 +86,12 @@ def count_list(lst):
     >>> count_list([5, 24, 48, 88])
     4
     """
+    # base case: list is empty
+    if lst == []:
+        return 0
 
-    pass
+    else:
+        return 1 + count_list(lst[1:])
 
 
 def sum_list(lst):
@@ -89,8 +103,12 @@ def sum_list(lst):
     >>> sum_list([5, 24, 48, 88])
     165
     """
+    # base case: list is empty
+    if lst == []:
+        return 0
 
-    pass
+    else:
+        return lst[0] + sum_list(lst[1:])
 
 
 def reverse(lst):
@@ -102,8 +120,13 @@ def reverse(lst):
     >>> reverse([])
     []
     """
+    # base case: 1 item in list
+    if len(lst) <= 1:
+        return lst
 
-    pass
+    else:
+        return [lst[-1]] + reverse(lst[:-1])
+
 
 
 def fibonacci(n):
@@ -127,7 +150,7 @@ def fibonacci(n):
     >>> fibonacci(4)
     3
 
-    >>> fibonacci(5) 
+    >>> fibonacci(5)
     5
 
     >>> fibonacci(6)
@@ -143,7 +166,12 @@ def fibonacci(n):
     34
     """
 
-    pass
+    if n <= 1:
+        return n
+
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
 
 
 def find(lst, i):
@@ -161,8 +189,16 @@ def find(lst, i):
 
     >>> find(["a", "b", "c"], "d")
     """
+    # base case: list is empty
+    if lst == []:
+        return None
 
-    pass
+    else:
+        if lst[0] == i:
+            return i
+        else:
+            return find(lst[1:], i)
+
 
 
 def is_palindrome(some_string):
@@ -189,7 +225,18 @@ def is_palindrome(some_string):
     False
     """
 
-    pass
+    # base case(s): 1 letter matches 1 letter, or empty list
+    if len(some_string) <= 1:
+        # print "if ", some_string
+        return True
+
+    else:
+        if some_string[0] == some_string[-1]:
+            # print "else ", some_string[1:-1]
+            return is_palindrome(some_string[1:-1])
+
+    return False
+
 
 
 def fold_paper(width, height, folds):
@@ -227,12 +274,28 @@ def fold_paper(width, height, folds):
     (5.0, 10.0)
     """
 
-    pass
+    # use floats
+    width = float(width)
+    height = float(height)
+
+    # base case is # of folds == 1:
+    if folds == 1:
+        if width >= height:
+            return (width / 2, height)
+        else:
+            return (width, height / 2)
+
+    else:
+        if width >= height:
+            return fold_paper(width/2, height, folds-1)
+        else:
+            return fold_paper(width, height/2, folds-1)
+
 
 
 def count_up(n, target):
     """Print all integers from n to target, inclusive.
-    
+
     >>> count_up(1, 5)
     1
     2
@@ -256,7 +319,19 @@ def count_up(n, target):
     >>> count_up(1, 0)
     """
 
-    pass
+    # base case(s): n is the same as the target, OR, n is greater than target
+
+    if n > target:
+        return None
+
+    if n == target:
+        print n
+
+    else:
+        print n
+        count_up(n + 1, target)
+
+    return
 
 
 ###########################################################################################
