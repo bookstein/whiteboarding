@@ -44,6 +44,21 @@ class LinkedList(object):
 
     print "Not found"
 
+  def r_search(self, data, node=None):
+    """Recursive search for node by data"""
+
+    if not node:
+      node = self.head
+
+    # base case: found data
+    if node.data == data:
+      return node
+
+    if node.next:
+      return self.r_search(data, node.next)
+
+    print "Not found"
+
 
 ll = LinkedList()
 ll.add(10)
