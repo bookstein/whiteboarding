@@ -24,3 +24,33 @@ class LinkedList(object):
     # if no tail exists yet:
     self.tail = node
 
+  def printList(self):
+    node = self.head
+
+    while node:
+      print node.data
+      node = node.next
+
+  def search(self, data):
+    found = False
+    node = self.head
+
+    while not found:
+      found = True
+
+      if node.data == data:
+        return found
+
+      else:
+        node = node.next
+        found = False
+
+
+ll = LinkedList()
+ll.add(10)
+ll.add(5)
+ll.add(11)
+ll.add(4)
+ll.add(100)
+ll.add(3)
+
