@@ -78,6 +78,31 @@ class LinkedList(object):
         prev = current
         current = current.next
 
+  def insert(self, index, data):
+    """
+    Insert a node with value 'data' at any point by specifying index (or count)
+    Index is the position after which node will be inserted.
+    Count starts at 0.
+    """
+    node = Node(data)
+    current = self.head
+    count = 0
+
+    while count <= index:
+
+      if index == 0:
+        node.next = current
+        self.head = node
+        return
+
+      if count == index:
+        node.next = current.next
+        current.next = node
+
+      count += 1
+      current = current.next
+
+
 
 
 
