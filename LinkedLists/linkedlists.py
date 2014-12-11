@@ -140,6 +140,39 @@ class LinkedList(object):
 
     return "Not found"
 
+  def find_max(self, current=None):
+    """Find max value in a list"""
+    if not current:
+      current = self.head
+
+    # base case: only 1 number in list
+    if not current.next:
+      return current.data
+
+    else:
+      bigger = self.find_max(current.next)
+
+      if bigger < current.data:
+        bigger = current.data
+
+    return bigger
+
+  def find_min(self, current=None):
+    """Find min value in a list"""
+    if not current:
+      current = self.head
+
+    # base case: list has 1 value
+    if not current.next:
+      return current.data
+
+    else:
+      smaller = self.find_min(current.next)
+
+      if current.data < smaller:
+        smaller = current.data
+
+    return smaller
 
 
 ll = LinkedList()
