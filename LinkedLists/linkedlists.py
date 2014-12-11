@@ -32,18 +32,17 @@ class LinkedList(object):
       node = node.next
 
   def search(self, data):
-    found = False
     node = self.head
 
-    while not found:
-      found = True
+    while node != None:
 
       if node.data == data:
-        return found
+        return node
 
       else:
         node = node.next
-        found = False
+
+    print "Not found"
 
 
 ll = LinkedList()
