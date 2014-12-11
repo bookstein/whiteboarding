@@ -102,6 +102,21 @@ class LinkedList(object):
       count += 1
       current = current.next
 
+  def length(self):
+    count = 0
+    current = self.head
+    is_end = False
+
+    while not is_end:
+      count += 1
+
+      if not current.next:
+        is_end = True
+
+      current = current.next
+
+
+    return count
 
 
 
