@@ -59,6 +59,28 @@ class LinkedList(object):
 
     print "Not found"
 
+  def delete(self, data):
+    """Delete a node after finding it by data"""
+    current = self.head
+    prev = None
+
+    while current.next is not None:
+
+      if current.data == data:
+        if not prev:
+          self.head = current.next
+          current.next = None
+
+        prev.next = current.next
+        return # otherwise this was an endless while loop
+
+      else:
+        prev = current
+        current = current.next
+
+
+
+
 
 ll = LinkedList()
 ll.add(10)
