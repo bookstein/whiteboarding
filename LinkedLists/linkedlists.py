@@ -103,6 +103,9 @@ class LinkedList(object):
       current = current.next
 
   def length(self):
+    """
+    Length of list
+    """
     count = 0
     current = self.head
     is_end = False
@@ -118,7 +121,24 @@ class LinkedList(object):
 
     return count
 
+  def get_index(self, data):
+    """
+    Get index of node using given data (essentially search but with count)
+    Count is zero-indexed
+    """
+    count = 0
+    current = self.head
 
+    while current:  # after last node of list, current is None
+      if current.data == data:
+        print count
+        return
+
+      else:
+        current = current.next
+        count += 1
+
+    return "Not found"
 
 
 
