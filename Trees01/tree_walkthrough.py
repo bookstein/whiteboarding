@@ -64,7 +64,7 @@ class BinarySearchTree(object):
 
     def search(self, value):
 
-        """Linear search of tree"""
+        """Search of tree"""
 
         node = self.root
 

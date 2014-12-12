@@ -1,24 +1,26 @@
 class BinaryTreeNode:
     def __init__(self, value):
-        pass
+        self.value = value
+        self.right = None
+        self.left = None
 
     def get_left(self):
-        pass
+        return self.left
 
     def set_left(self, node):
-        pass
+        self.left = node
 
     def get_right(self):
-        pass
+        return self.right
 
     def set_right(self, node):
-        pass
+        self.right = node
 
     def get_value(self):
-        pass
+        return self.value
 
     def set_value(self, number):
-        pass
+        self.value = number
 
 def depth_first_traversal(node):
     pass
