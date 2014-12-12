@@ -23,4 +23,18 @@ class BinaryTreeNode:
         self.value = number
 
 def depth_first_traversal(node):
-    pass
+    print node.value
+
+    # if a node to the left exists, go to it
+    if node.left:
+        depth_first_traversal(node.left)
+    # if a node to the left does not exist, go right
+    if node.right:
+        depth_first_traversal(node.right)
+
+    # if neither of these conditions are met, function returns None
+    print "done with this scope"
+
+
+
+

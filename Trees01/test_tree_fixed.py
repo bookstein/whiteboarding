@@ -1,4 +1,5 @@
 import exercise11 as ex11
+from pytest import capsys
 
 def test_basic_tree():
     root = ex11.BinaryTreeNode(5)
@@ -13,7 +14,7 @@ def test_simple_tree():
 
     root.set_left(left)
     root.set_right(right)
-   
+
     assert root.get_left() == left
     assert root.get_right() == right
     assert left.get_left() == None
@@ -37,7 +38,7 @@ def test_depth_first(capsys):
     left.set_right(l_right)
     right.set_left(r_left)
     right.set_right(r_right)
-    
+
     ex11.depth_first_traversal(root)
     out, err = capsys.readouterr()
     expected = "0 1 2 3 4 5 6"
@@ -45,4 +46,12 @@ def test_depth_first(capsys):
     print "Expected output", expected
 
     assert out == "0 1 2 3 4 5 6"
+
+def main():
+    test_basic_tree()
+    test_simple_tree()
+    test_depth_first(capsys)
+
+if __name__ == "__main__":
+    main()
 
