@@ -25,6 +25,7 @@ class BinaryTreeNode:
 def depth_first_traversal(node):
     """
     DFT, recursive
+    pre-ordered because print comes first (prints root) before recursive calls
     """
     print node.value
 
@@ -59,22 +60,20 @@ def nr_depth_first_traversal(node):
         else:
             node = prev
 
-def breadth_first_search(node):
+def breadth_first_traversal(node):
     if not node:
         return None
 
     else:
         queue = [node]
         while len(queue) > 0:
-            current = queue[0]
+            current = queue.pop(0)
             print current.value
 
             if current.left:
                 queue.append(current.left)
             if current.right:
                 queue.append(current.right)
-
-            queue.pop(0)
 
 
 root = BinaryTreeNode(0)

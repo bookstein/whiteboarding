@@ -33,3 +33,6 @@ def selectionSort(lst):
     print "selection:", lst
 
 selectionSort(lst)
+
+def insertionSort(lst):
+
