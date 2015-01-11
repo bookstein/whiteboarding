@@ -35,4 +35,4 @@ def selectionSort(lst):
 selectionSort(lst)
 
 def insertionSort(lst):
-
+    pass
